@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* CSS for animating the comments being added */
+.comment-enter {
+  opacity: 0.01;
+}
+
+.comment-enter.comment-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
