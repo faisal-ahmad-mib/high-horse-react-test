@@ -24,6 +24,7 @@ const HeaderStyle = {
 	flexFlow: "row nowrap",
 	backgroundColor: "white",
 	alignItems: "center",
+	paddingTop: "5px",
 	paddingBottom: "5px",
 	color: "#DF6D1E"
 }
