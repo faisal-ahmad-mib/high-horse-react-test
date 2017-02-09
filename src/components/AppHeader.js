@@ -5,7 +5,7 @@ import LaunchIcon from 'material-ui/svg-icons/action/launch';
 import { TimeDuration } from '../utilities/TimeDuration';
 
 const HeaderStyle = {
-	height: "80px",
+	minHeight: "80px",
 	display: "flex",
 	flexFlow: "column nowrap",
 	color: "#FFE0B7",
@@ -16,6 +16,9 @@ const HeaderStyle = {
 const ItemNameStyle = {
 	fontSize: "large",
 	fontWeight: "normal",
+	whiteSpace: "nowrap",
+  	overflow: "hidden",
+  	textOverflow: "ellipsis"
 }
 
 const ItemDetailsContainerStyle = {
@@ -46,7 +49,14 @@ const IconStyle = {
 const ItemExternalLinkStyle = {
 	display: "flex",
 	flexFlow: "row nowrap",
-	alignItems: "center"
+	alignItems: "center",
+	cursor: "pointer",
+}
+
+const ItemExternalLinkTextStyle = {
+	whiteSpace: "nowrap",
+  	overflow: "hidden",
+  	textOverflow: "ellipsis"
 }
 
 /*
@@ -55,6 +65,9 @@ const ItemExternalLinkStyle = {
 */
 export class AppHeader extends Component {
 
+	handleClick(url) {
+		window.open(url);
+	}
 
 	render() {
 
@@ -79,8 +92,11 @@ export class AppHeader extends Component {
 							<MessageIcon style={IconStyle}/>&nbsp;{comments}
 						</div>
 					</div>
-					<div style={ItemExternalLinkStyle}>
-						<LaunchIcon style={IconStyle}/>&nbsp;{url}
+					<div style={ItemExternalLinkStyle} onClick={this.handleClick.bind(this, url)}>
+						<LaunchIcon style={IconStyle}/>&nbsp;
+						<div style={ItemExternalLinkTextStyle}>
+							{url}
+						</div>
 					</div>
 				</div>
 			);
